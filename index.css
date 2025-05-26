@@ -135,6 +135,21 @@ body {
   padding: 0;
   border-radius: 10px;
   transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.secondimg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 27%;
+  width: 780px;
+  height: 500px;
+  background: transparent;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
 }
 .secondimg h1 {
   position: absolute;
@@ -174,5 +189,231 @@ body {
   transition: background-color 0.3s ease;
 }
 .secondimg button:hover {
+  background-color: #0056b3;
+}
+
+
+/* thirdimg style sheet */
+.thirdimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+}
+.thirdimg img {
+  position: absolute;
+  top: 50%;
+  left: 73%; /* Right side of the container */
+  width: 780px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(90%);
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+/* Full shadow around the image */
+.thirdimg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 73%; /* Same as image */
+  width: 780px;
+  height: 500px;
+  background: transparent;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.thirdimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+.thirdimg p {
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  width: 40%;
+}
+.thirdimg a {
+  position: absolute;
+  top: 84%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+}
+.thirdimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.thirdimg button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* fourthimg style sheet */
+.fourthimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+.fourthimg img {
+  position: absolute;
+  top: 50%;
+  left: 27%;
+  width: 780px;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(90%);
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.fourthimg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 27%;
+  width: 780px;
+  height: 500px;
+  background: transparent;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.fourthimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 56%;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+.fourthimg p {
+  position: absolute;
+  top: 30%;
+  left: 55.1%;
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  width: 40%;
+}
+.fourthimg a {
+  position: absolute;
+  top: 86%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+}
+.fourthimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.fourthimg button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* fifthimg style sheet */
+.fifthimg {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  height: 700px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+.fifthimg img{
+  position: absolute;
+  width: 80px;
+  top: 19%;
+  left: 23%;
+}
+.fifthimg h1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+.fifthimg p {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+.fifthimg a {
+  position: absolute;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fifthimg button {
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 0.80rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.fifthimg button:hover {
   background-color: #0056b3;
 }
