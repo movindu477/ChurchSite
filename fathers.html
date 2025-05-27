@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priests Details</title>
+    <link rel="stylesheet" href="fathers.css">
+
+    <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="Church Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Previous Priests</a></li>
+        <li><a href="#">Contact Details</a></li>
+        <li><a href="#">Saint Details</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</head>
+<body>
+
+<div class="father1">
+  <img class="father1__bg" src="images/fa1.jpg" alt="Picture of Fathers">
+  <div class="father1__overlay"></div>
+  <div class="father1__content">
+    <h1 class="father1__heading">Priests Who Shaped Us</h1>
+    <p class="father1__text">This page serves as a tribute and resource to honor all the priests who have faithfully served our parish throughout the years. Through this website, you can search and learn more about the spiritual leaders who have guided our community, celebrated the sacraments among us, and left a lasting impact on our parish life. We are grateful for their service and invite you to explore their stories, photos (if available), and the periods during which they served.</p>
+  </div>
+</div>
+
+<script>
+    const fatherSection = document.querySelector('.father1');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-inview');
+    }
+  });
+}, { threshold: 0.1 });
+
+observer.observe(fatherSection);
+</script>
+
+</body>
+</html>
