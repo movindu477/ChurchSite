@@ -39,3 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+
+// about3 function //
+// Animation Trigger
+const about3Section = document.querySelector('.about3');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+    }
+  });
+}, { threshold: 0.1 });
+
+observer.observe(about3Section);
