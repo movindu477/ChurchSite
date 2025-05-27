@@ -49,3 +49,194 @@ body {
 .nav-links li a:hover {
   color: #007BFF; /* Highlight color on hover */
 }
+
+
+/* about1 Section Styles */
+.about1 {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  min-height: 650px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  isolation: isolate; /* Creates new stacking context */
+}
+
+/* Background Image with Parallax Effect */
+.about1__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  z-index: -1;
+  transform: translateZ(0); /* GPU acceleration */
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+/* Content Container */
+.about1__content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 2;
+}
+/* Main Heading with Fade-In Animation */
+.about1__heading {
+  font-size: clamp(3.9rem, 6vw, 8rem);
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  margin-top: 20%;
+}
+/* ===== Overlay with Smooth Scroll Effect ===== */
+.about1__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 70%
+  );
+  z-index: 1;
+  transform: translateY(100%);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  mix-blend-mode: soft-light;
+}
+.about1.is-inview .about1__bg {
+  transform: scale(1.05) translateZ(0);
+}
+.about1.is-inview .about1__heading {
+  opacity: 1;
+  transform: translateY(0);
+  margin-left: 5%;
+  transition-delay: 0.3s;
+  background: transparent; /* Explicitly remove background */
+  backdrop-filter: none; /* Remove blur effect */
+  padding: 0; /* Remove padding if it was for background */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Keep text shadow for readability */
+}
+.about1.is-inview .about1__overlay {
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .about1 {
+    min-height: 500px;
+  }
+  .about1__heading {
+    font-size: 2.2rem;
+    margin-left: 5%; /* Adjusted for mobile */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Smaller shadow on mobile */
+  }
+}
+
+
+
+/* about2 Section Styles */
+.about2 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f8f9fa;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about2 img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 1s ease-out;
+  margin-bottom: 3rem;
+}
+.about2 h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.about2 h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: #8e44ad;
+  border-radius: 3px;
+}
+.about2 p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #34495e;
+  font-size: 1.1rem;
+  text-align: justify;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out 0.2s;
+}
+.about2.in-view img {
+  transform: scale(1);
+  opacity: 1;
+}
+.about2.in-view h1,
+.about2.in-view p {
+  transform: translateY(0);
+  opacity: 1;
+}
+.about2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(142, 68, 173, 0.05) 0%, rgba(241, 242, 246, 0.8) 100%);
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .about2 {
+    padding: 2rem 1rem;
+  }
+  
+  .about2 p {
+    text-align: left;
+    font-size: 1rem;
+  }
+}
