@@ -699,7 +699,7 @@ body {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 .detailsimg4 img {
-  width: 100%;
+  width: auto;
   height: 350px;
   object-fit: cover;
   object-position: top;
