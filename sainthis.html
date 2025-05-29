@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint History</title>
+    <link rel="stylesheet" href="sainthis.css">
+
+      <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="Church Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Family Tree</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">History of Our Patron Saint</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+</head>
+<body>
+
+<div class="saint1">
+  <img class="saint1__bg" src="https://media.ascensionpress.com/wp-content/uploads/2023/09/saint-francis-de-sales-2.png" alt="Picture of St. Francis de Sales">
+  <div class="saint1__overlay"></div>
+  <div class="saint1__content">
+    <h1 class="saint1__heading">About St. Francis De Sales</h1>
+        <p class="saint1__text">We are always happy to hear from you. Whether you have questions about our parish, wish to reach out to our priests, or would like to get involved in church activities, feel free to contact us using the details below. May God bless your visit and guide you closer to His love.</p>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const saintSection = document.querySelector('.saint1');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-inview');
+        // Optional: Unobserve after animation triggers
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  if (saintSection) {
+    observer.observe(saintSection);
+  }
+});
+</script>
+    
+</body>
+</html>
