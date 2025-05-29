@@ -33,6 +33,25 @@
   </div>
 </div>
 
+
+<div class="saint2 is-visible">
+  <h2>St. Francis de Sales</h2>
+  <div class="content-wrapper">
+    <img src="images/francis.jpg" alt="St. Francis de Sales">
+    <p>
+St. Francis de Sales was born on August 21, 1567, in the village of Thorens-Glières, in the Duchy of Savoy, which is now part of modern-day France. He came from a noble family and was the eldest of six children. His parents, François de Sales and Françoise de Suvigny, ensured that he received an excellent education, first at the University of Paris and later at the University of Padua, where he studied law, as per his father’s wishes. However, during his studies, Francis experienced a profound spiritual conversion, and he felt a deep calling to serve God rather than pursue a career in law or politics. In 1593, after returning home and being deeply moved by a sermon he heard, he resolved to dedicate his life to the Church. Despite initial resistance from his family, who had hoped he would marry and continue the family line, Francis was ordained a priest in 1593 and soon became known for his gentle demeanor, eloquent preaching, and unwavering commitment to guiding souls toward holiness.
+
+In 1599, he was appointed provost of the Diocese of Geneva, and in 1602, he became the Bishop of Geneva, a position he held until his death in 1622. During his time as bishop, St. Francis played a crucial role in restoring Catholic faith in areas heavily influenced by the Protestant Reformation. He was instrumental in bringing many back to the Catholic Church through persuasion and kindness rather than coercion, making him a model of pastoral care and evangelization. His approach was rooted in patience, compassion, and personal example — traits that earned him the title “Gentleman Saint.” He believed that every person could live a holy life regardless of their station in life, and this belief formed the foundation of his most famous work, Introduction to the Devout Life , published in 1609. This book, written originally as letters of spiritual guidance to a young woman, quickly became a classic of Catholic spirituality and continues to be widely read today. It emphasized that holiness is not reserved for monks or clergy but is attainable by all people in their daily lives, no matter their profession or circumstances.
+
+St. Francis de Sales also worked closely with St. Jane Frances de Chantal to found the Order of the Visitation of Holy Mary (Visitandines), a religious order for women whose purpose was to provide hospitality, education, and spiritual retreats. The order reflected his vision of a contemplative and active life lived in humility and love. Throughout his life, St. Francis maintained a prolific correspondence, offering spiritual direction, encouragement, and wisdom to people from all walks of life. His writings are marked by clarity, warmth, and a deep trust in God's mercy, and they continue to inspire countless individuals seeking to grow in faith and virtue.
+
+Despite suffering from poor health throughout his life, including kidney disease and other ailments, St. Francis remained tireless in his ministry. He traveled extensively, preached often, and wrote regularly. His influence extended beyond the diocese of Geneva and reached across Europe. He was known for his deep devotion to the Eucharist and the Virgin Mary, and he encouraged frequent reception of the sacraments as essential means of growing closer to God. St. Francis de Sales died on December 28, 1622, while traveling to Lyon to visit his friend and fellow saint, St. Jane Frances de Chantal. He was canonized in 1665 by Pope Alexander VII and declared a Doctor of the Church in 1877 by Pope Pius IX due to his significant contributions to theology and spirituality.
+
+Today, St. Francis de Sales is recognized as the patron saint of writers, journalists, and the Catholic press, reflecting the power and reach of his written works. He is also venerated as a model of Christian living for laypeople, emphasizing that holiness can be achieved in everyday life through small acts of love, patience, and faithfulness. His feast day is celebrated on January 24 each year, and his legacy lives on through the numerous institutions, schools, and churches named in his honor around the world. For our parish community here at Kattuwa Church, dedicated to St. Francis de Sales, his life serves as both an inspiration and a guide. As we strive to live out our faith in service to others, we look to him as a shining example of gentleness, perseverance, and love for God and neighbor.
+    </p>
+  </div>
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
   const saintSection = document.querySelector('.saint1');
@@ -40,6 +59,28 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-inview');
+        // Optional: Unobserve after animation triggers
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  if (saintSection) {
+    observer.observe(saintSection);
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const saintSection = document.querySelector('.saint2');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
         // Optional: Unobserve after animation triggers
         observer.unobserve(entry.target);
       }
