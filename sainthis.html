@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saint History</title>
     <link rel="stylesheet" href="sainthis.css">
+    <script src="index.js" defer></script>
 
       <nav class="navbar">
     <div class="navbar-container">
@@ -52,6 +53,30 @@ Today, St. Francis de Sales is recognized as the patron saint of writers, journa
   </div>
 </div>
 
+
+
+<div class="saintgallery is-visible">
+  <!-- Heading -->
+  <h2>St. Francis De Sales Gallery</h2>
+
+  <!-- Description Paragraph -->
+  <p>
+    St. Francis De Sales was known for his gentle spirit, deep faith, and unwavering commitment to guiding souls toward holiness.
+    His life and teachings continue to inspire countless believers around the world. This gallery showcases moments from his life,
+    works, and the legacy he left behind in art, devotion, and writings.
+  </p>
+
+  <!-- Image Grid Container -->
+  <div class="gallery-container">
+    <img src="images/saint.webp" alt="Picture of St. Francis De Sales">
+    <img src="images/saint1.webp" alt="Statue of St. Francis De Sales">
+    <img src="images/saint3.jpg" alt="Painting of St. Francis De Sales">
+    <img src="images/saint4.jpg" alt="Relic of St. Francis De Sales">
+    <img src="images/saint5.jpeg" alt="St. Francis De Sales Church">
+    <img src="images/saint6.jpg" alt="Portrait of St. Francis De Sales">
+  </div>
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
   const saintSection = document.querySelector('.saint1');
@@ -74,6 +99,7 @@ Today, St. Francis de Sales is recognized as the patron saint of writers, journa
 });
 
 
+// Add this if you want the animations to trigger on scroll
 document.addEventListener('DOMContentLoaded', function() {
   const saintSection = document.querySelector('.saint2');
   
@@ -81,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        // Optional: Unobserve after animation triggers
+        // Optional: Unobserve after triggering
         observer.unobserve(entry.target);
       }
     });
@@ -91,10 +117,92 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   if (saintSection) {
+    // Remove is-visible class if it's in HTML
+    saintSection.classList.remove('is-visible');
     observer.observe(saintSection);
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const gallery = document.querySelector('.saintgallery');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Optional: Unobserve after triggering
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  if (gallery) {
+    observer.observe(gallery);
+  }
+});
+
+const saintGallery = document.querySelector('.saintgallery');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  observer.observe(saintGallery);
 </script>
     
 </body>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <img src="images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>Give me a spirit for salvation. It is because of your love</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>123 Church Street, City, State ZIP</p>
+      <br>
+      <p>Phone: (123) 456-7890</p>
+      <br>
+      <p>Email: info@churchname.org</p>
+      <br>
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Previous Priests</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">History of Our Patron Saint</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+      <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Church Name. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" title="Go to top">↑</button>
+
 </html>
