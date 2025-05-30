@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Parish Families</title>
+    <link rel="stylesheet" href="family.css">
+
+      <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="Church Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Church Family Tree</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">History of Our Patron Saint</a></li>
+        <li><a href="family.html">See Our Parish Family</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</head>
+<body>
+
+<div class="family1">
+  <img class="family1__bg" src="https://images.unsplash.com/photo-1740106987822-89f2e3fe51c2?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="picture of cross">
+  <div class="family1__overlay"></div>
+  <div class="family1__content">
+    <h1 class="family1__heading">Community Members</h1>
+    <p class="family1__text">
+      Discover the vibrant tapestry of service at St. Francis De Sales Church Kattuwa, where every generation answers God’s call with St. Francis de Sales’ gentle spirit. Here, wisdom and youthful zeal intertwine in ministries that nurture souls, uplift communities, and glorify the Lord.
+    </p>
+  </div>
+</div>
+
+<script>
+    // Family1 function
+   document.addEventListener('DOMContentLoaded', () => {
+  const familySection = document.querySelector('.family1');
+
+  // Intersection Observer for scroll trigger
+  if (familySection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-inview');
+          observer.unobserve(entry.target); // Stop observing after animation runs
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(familySection);
+  }
+
+  // Optional Parallax Effect on Background Image
+  const bgImage = document.querySelector('.family1__bg');
+  if (bgImage) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      // Apply smooth vertical movement
+      bgImage.style.transform = `scale(1.05) translateY(${scrollY * 0.2}px)`;
+    });
+  }
+});
+</script>
+    
+</body>
+</html>
