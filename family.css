@@ -11,6 +11,8 @@ body {
   scroll-behavior: smooth;
 }
 
+
+
 /* Navbar Styles */
 .navbar {
   position: sticky;
@@ -170,4 +172,202 @@ body {
       rgba(255, 255, 255, 0) 100%
     );
   }
+}
+
+
+
+
+
+/* Family2 Section style */
+.family2 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
+}
+
+.family2.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+}
+
+.family2 h1.main-heading {
+    color: #2c3e50;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.family2 h1.main-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+.family2:hover h1.main-heading::after {
+    width: 150px;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.team-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 300px;
+    max-width: 700px; /* Increased from 600px for larger layout */
+    width: 100%;     /* Ensures consistent sizing in responsive layouts */
+    margin: 0 auto;
+}
+
+/* Staggered Animation Delays */
+.family2:not(.in-view) .team-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.family2.in-view .team-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.family2.in-view .team-card:nth-child(1) { transition-delay: 0.1s; }
+.family2.in-view .team-card:nth-child(2) { transition-delay: 0.2s; }
+.family2.in-view .team-card:nth-child(3) { transition-delay: 0.3s; }
+.family2.in-view .team-card:nth-child(4) { transition-delay: 0.4s; }
+.family2.in-view .team-card:nth-child(5) { transition-delay: 0.5s; }
+.family2.in-view .team-card:nth-child(6) { transition-delay: 0.6s; }
+.family2.in-view .team-card:nth-child(7) { transition-delay: 0.7s; }
+.family2.in-view .team-card:nth-child(8) { transition-delay: 0.8s; }
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.team-card img {
+    width: 100%;
+    height: 450px; /* Increased from 400px for taller images */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+    transform: scale(1.05);
+}
+
+.team-card h2 {
+    font-size: 1.3rem;
+    padding: 1.5rem;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .teams-grid {
+        max-width: 1200px;
+        padding: 0 1.5rem;
+    }
+
+    .team-card {
+        max-width: 600px;
+    }
+
+    .team-card img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .team-card img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .teams-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .team-card img {
+        height: 300px;
+    }
+
+    .family2 h1.main-heading {
+        font-size: 2rem;
+    }
+
+    .sub-heading {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .team-card img {
+        height: 240px;
+    }
+
+    .team-card {
+        max-width: 100%;
+    }
 }

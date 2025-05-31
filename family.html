@@ -65,92 +65,140 @@
     });
   }
 });
+
+// family2 function
+document.addEventListener('DOMContentLoaded', () => {
+    const familySection = document.querySelector('.family2');
+
+    if (!familySection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // Stop observing after animation starts
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(familySection);
+});
+
 </script>
 
 
-<div class="family2">
-  <h1>Apostolic services related to the church</h1>
-  <div class="fam1">
-    <h1>Meesam Dharma Seva Sabha</h1>
-    <img src="" alt="">
+  <!-- Apostolic Services Section -->
+  <div class="family2" id="apostolic-services">
+    <div class="header-container">
+      <h1 class="main-heading">Apostolic Services Related to the Church</h1>
+      <p class="sub-heading">
+        Discover the various ministries and teams that serve our church community with dedication and faith.
+      </p>
+    </div>
+
+    <div class="teams-grid">
+      <div class="team-card">
+        <img src="images/1.jpg" alt="Meesam Dharma Seva Sabha">
+        <h2>Meesam Dharma Seva Sabha</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/2.jpg" alt="Dhaham Teachers' Council">
+        <h2>Dhaham Teachers' Council</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/3.jpg" alt="Divine Heart Society">
+        <h2>Divine Heart Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/4.jpg" alt="Mary's Army">
+        <h2>Mary's Army</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/5.jpg" alt="Choir">
+        <h2>Choir</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/6.jpg" alt="Youth Society">
+        <h2>Youth Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/7.jpg" alt="Christian Awakening Society">
+        <h2>Christian Awakening Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/8.jpg" alt="Pilgrimage Committee">
+        <h2>Pilgrimage Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/9.jpg" alt="St. Vincent de Paul Society">
+        <h2>St. Vincent de Paul Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/10.jpg" alt="Rose Society">
+        <h2>Rose Society</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/11.jpg" alt="Children of Pooja Assistant">
+        <h2>Children of Pooja Assistant</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/12.jpg" alt="St. Joseph's Committee">
+        <h2>St. Joseph's Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/13.jpg" alt="Our Lady of Lourdes Committee">
+        <h2>Our Lady of Lourdes Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/14.jpg" alt="Family Services Committee">
+        <h2>Family Services Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/15.jpg" alt="Young Christian Student Movement">
+        <h2>Young Christian Student Movement</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/16.jpg" alt="Missionary Children's Club">
+        <h2>Missionary Children's Club</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/17.jpg" alt="Sunday School Prefects Committee">
+        <h2>Sunday School Prefects Committee</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/18.jpg" alt="Breakfast under the tree group">
+        <h2>Breakfast under the Tree Group</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/19.jpg" alt="Pooja Goods Sales Team">
+        <h2>Pooja Goods Sales Team</h2>
+      </div>
+
+      <div class="team-card">
+        <img src="images/20.jpg" alt="Jubilee Night Committee">
+        <h2>Jubilee Night Committee</h2>
+      </div>
+    </div>
   </div>
-  <div class="fam1">
-    <h1>Dhaham Teachers' Council</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1>Divine Heart Society</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1>Mary's Army</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1>Choir</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1>Youth Society</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1>Christian Awakening Society</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1>Pilgrimage Comittee</h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-  <div class="fam1">
-    <h1></h1>
-    <img src="" alt="">
-  </div>
-</div>
+
     
 </body>
 </html>
