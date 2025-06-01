@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Parish Families</title>
     <link rel="stylesheet" href="family.css">
+    <script src="index.js" defer></script>
 
       <nav class="navbar">
     <div class="navbar-container">
@@ -69,17 +70,51 @@
 // family2 function
 document.addEventListener('DOMContentLoaded', () => {
     const familySection = document.querySelector('.family2');
-
     if (!familySection) return;
+
+    // Preload images function
+    function preloadImages() {
+        const images = familySection.querySelectorAll('.team-card img');
+        images.forEach(img => {
+            // Create new image element to force loading
+            const tempImg = new Image();
+            tempImg.src = img.src || img.getAttribute('data-src');
+            
+            // Add loaded class when image is ready
+            tempImg.onload = () => {
+                img.style.opacity = 1;
+                img.parentElement.classList.add('loaded');
+            };
+            
+            tempImg.onerror = () => {
+                // Fallback if image fails to load
+                img.src = 'https://via.placeholder.com/800x500?text=Image+Not+Found';
+                img.style.opacity = 1;
+            };
+        });
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                observer.unobserve(entry.target); // Stop observing after animation starts
+                
+                // Trigger image preloading
+                preloadImages();
+                
+                // Add animation delays for all cards
+                const cards = entry.target.querySelectorAll('.team-card');
+                cards.forEach((card, index) => {
+                    card.style.transitionDelay = `${0.1 + (index * 0.1)}s`;
+                });
+                
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.2 });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '200px 0px' // Load when 200px away from viewport
+    });
 
     observer.observe(familySection);
 });
@@ -87,8 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-  <!-- Apostolic Services Section -->
-  <div class="family2" id="apostolic-services">
+<div class="family2" id="apostolic-services">
     <div class="header-container">
       <h1 class="main-heading">Apostolic Services Related to the Church</h1>
       <p class="sub-heading">
@@ -98,107 +132,149 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="teams-grid">
       <div class="team-card">
-        <img src="images/1.jpg" alt="Meesam Dharma Seva Sabha">
+        <img src="./images/1.jpg" alt="Meesam Dharma Seva Sabha" onerror="this.src='https://via.placeholder.com/400x450?text=Meesam+Sabha'">
         <h2>Meesam Dharma Seva Sabha</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/2.jpg" alt="Dhaham Teachers' Council">
+        <img src="./images/2.jpg" alt="Dhaham Teachers' Council" onerror="this.src='https://via.placeholder.com/400x450?text=Teachers+Council'">
         <h2>Dhaham Teachers' Council</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/3.jpg" alt="Divine Heart Society">
+        <img src="./images/3.jpg" alt="Divine Heart Society" onerror="this.src='https://via.placeholder.com/400x450?text=Divine+Heart'">
         <h2>Divine Heart Society</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/4.jpg" alt="Mary's Army">
+        <img src="./images/4.jpg" alt="Mary's Army" onerror="this.src='https://via.placeholder.com/400x450?text=Marys+Army'">
         <h2>Mary's Army</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/5.jpg" alt="Choir">
+        <img src="./images/5.jpg" alt="Choir" onerror="this.src='https://via.placeholder.com/400x450?text=Choir'">
         <h2>Choir</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/6.jpg" alt="Youth Society">
+        <img src="./images/6.jpg" alt="Youth Society" onerror="this.src='https://via.placeholder.com/400x450?text=Youth+Society'">
         <h2>Youth Society</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/7.jpg" alt="Christian Awakening Society">
+        <img src="./images/7.jpg" alt="Christian Awakening Society" onerror="this.src='https://via.placeholder.com/400x450?text=Awakening+Society'">
         <h2>Christian Awakening Society</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/8.jpg" alt="Pilgrimage Committee">
+        <img src="./images/8.jpg" alt="Pilgrimage Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Pilgrimage'">
         <h2>Pilgrimage Committee</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/9.jpg" alt="St. Vincent de Paul Society">
+        <img src="./images/9.jpg" alt="St. Vincent de Paul Society" onerror="this.src='https://via.placeholder.com/400x450?text=St+Vincent'">
         <h2>St. Vincent de Paul Society</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/10.jpg" alt="Rose Society">
+        <img src="./images/10.jpg" alt="Rose Society" onerror="this.src='https://via.placeholder.com/400x450?text=Rose+Society'">
         <h2>Rose Society</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/11.jpg" alt="Children of Pooja Assistant">
+        <img src="./images/11.jpg" alt="Children of Pooja Assistant" onerror="this.src='https://via.placeholder.com/400x450?text=Pooja+Assistant'">
         <h2>Children of Pooja Assistant</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/12.jpg" alt="St. Joseph's Committee">
+        <img src="./images/12.jpg" alt="St. Joseph's Committee" onerror="this.src='https://via.placeholder.com/400x450?text=St+Joseph'">
         <h2>St. Joseph's Committee</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/13.jpg" alt="Our Lady of Lourdes Committee">
+        <img src="./images/13.jpg" alt="Our Lady of Lourdes Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Our+Lady'">
         <h2>Our Lady of Lourdes Committee</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/14.jpg" alt="Family Services Committee">
+        <img src="./images/14.jpg" alt="Family Services Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Family+Services'">
         <h2>Family Services Committee</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/15.jpg" alt="Young Christian Student Movement">
+        <img src="./images/15.jpg" alt="Young Christian Student Movement" onerror="this.src='https://via.placeholder.com/400x450?text=YCS+Movement'">
         <h2>Young Christian Student Movement</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/16.jpg" alt="Missionary Children's Club">
+        <img src="./images/16.jpg" alt="Missionary Children's Club" onerror="this.src='https://via.placeholder.com/400x450?text=Missionary+Kids'">
         <h2>Missionary Children's Club</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/17.jpg" alt="Sunday School Prefects Committee">
+        <img src="./images/17.jpg" alt="Sunday School Prefects Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Sunday+School'">
         <h2>Sunday School Prefects Committee</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/18.jpg" alt="Breakfast under the tree group">
+        <img src="./images/18.jpg" alt="Breakfast under the tree group" onerror="this.src='https://via.placeholder.com/400x450?text=Breakfast+Group'">
         <h2>Breakfast under the Tree Group</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/19.jpg" alt="Pooja Goods Sales Team">
+        <img src="./images/19.jpg" alt="Pooja Goods Sales Team" onerror="this.src='https://via.placeholder.com/400x450?text=Pooja+Sales'">
         <h2>Pooja Goods Sales Team</h2>
       </div>
 
       <div class="team-card">
-        <img src="images/20.jpg" alt="Jubilee Night Committee">
+        <img src="./images/20.jpg" alt="Jubilee Night Committee" onerror="this.src='https://via.placeholder.com/400x450?text=Jubilee+Night'">
         <h2>Jubilee Night Committee</h2>
       </div>
     </div>
-  </div>
+</div>
 
     
 </body>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <img src="images/logo.jpg" alt="Church Logo" class="footer-logo">
+      <p>Give me a spirit for salvation. It is because of your love</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>123 Church Street, City, State ZIP</p>
+      <br>
+      <p>Phone: (123) 456-7890</p>
+      <br>
+      <p>Email: info@churchname.org</p>
+      <br>
+      <p>Sunday Services: 9:00 AM & 11:00 AM</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="fathers.html">Previous Priests</a></li>
+        <li><a href="contacts.html">Contact Details</a></li>
+        <li><a href="sainthis.html">History of Our Patron Saint</a></li>
+        <li><a href="family.html">See Our Parish Family</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <a href="#"><img src="images/fb.png" alt="Facebook"></a>
+      <a href="#"><img src="images/youtube.png" alt="Youtube"></a>
+      <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Church Name. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="backToTopBtn" title="Go to top">↑</button>
 </html>
