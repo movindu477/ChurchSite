@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts Details</title>
     <link rel="stylesheet" href="contacts.css">
+    <script src="index.js" defer></script>
 
-  <nav class="navbar">
+<nav class="navbar">
     <div class="navbar-container">
       <div class="logo">
         <img src="images/logo.jpg" alt="Church Logo" />
       </div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="fathers.html">Church Family Tree</a></li>
-        <li><a href="contacts.html">Contact Details</a></li>
-        <li><a href="sainthis.html">History of Our Patron Saint</a></li>
-        <li><a href="family.html">See Our Parish Family</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fathers.html" class="nav-link">Church Family Tree</a></li>
+        <li><a href="contacts.html" class="nav-link">Contact Details</a></li>
+        <li><a href="sainthis.html" class="nav-link">History of Our Patron Saint</a></li>
+        <li><a href="family.html" class="nav-link">See Our Parish Family</a></li>
       </ul>
     </div>
-  </nav>
+</nav>
 
 </head>
 <body>
@@ -74,6 +75,61 @@ document.addEventListener('DOMContentLoaded', function() {
   if (contactSection) {
     observer.observe(contactSection);
   }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  function setActiveLink() {
+    // Remove active class from all links first
+    navLinks.forEach(link => link.classList.remove('active'));
+    
+    // Check current page
+    const currentPath = window.location.pathname;
+    let activeLink = null;
+    
+    // First try to find exact match
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (currentPath.endsWith(linkPath)) {
+        activeLink = link;
+      }
+    });
+    
+    // If no exact match, try partial match
+    if (!activeLink) {
+      navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath.includes(linkPath)) {
+          activeLink = link;
+        }
+      });
+    }
+    
+    // If still no match, use stored link
+    if (!activeLink) {
+      const storedLink = localStorage.getItem('activeNavLink');
+      activeLink = document.querySelector(`.nav-link[href="${storedLink}"]`);
+    }
+    
+    // Set active class
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  }
+  
+  // Set initial active link
+  setActiveLink();
+  
+  // Add click handlers
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      localStorage.setItem('activeNavLink', this.getAttribute('href'));
+      setActiveLink();
+    });
+  });
 });
 </script>
 

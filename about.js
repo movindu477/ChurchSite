@@ -77,3 +77,59 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  function setActiveLink() {
+    // Remove active class from all links first
+    navLinks.forEach(link => link.classList.remove('active'));
+    
+    // Check current page
+    const currentPath = window.location.pathname;
+    let activeLink = null;
+    
+    // First try to find exact match
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (currentPath.endsWith(linkPath)) {
+        activeLink = link;
+      }
+    });
+    
+    // If no exact match, try partial match
+    if (!activeLink) {
+      navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath.includes(linkPath)) {
+          activeLink = link;
+        }
+      });
+    }
+    
+    // If still no match, use stored link
+    if (!activeLink) {
+      const storedLink = localStorage.getItem('activeNavLink');
+      activeLink = document.querySelector(`.nav-link[href="${storedLink}"]`);
+    }
+    
+    // Set active class
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  }
+  
+  // Set initial active link
+  setActiveLink();
+  
+  // Add click handlers
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      localStorage.setItem('activeNavLink', this.getAttribute('href'));
+      setActiveLink();
+    });
+  });
+});
