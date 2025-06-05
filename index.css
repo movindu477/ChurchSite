@@ -30,13 +30,11 @@ body {
   justify-content: space-between;
   padding: 1rem 2rem;
 }
-
 .logo img {
   height: 60px;
   width: auto;
   border-radius: 50%;
 }
-
 .nav-links {
   list-style: none;
   display: flex;
@@ -44,7 +42,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .nav-links li a {
   color: #fff; /* Changed from #333 to match navbar contrast */
   text-decoration: none;
@@ -57,17 +54,14 @@ body {
   position: relative;
   font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
 }
-
 .nav-links li a:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.15);
 }
-
 .nav-links li a.active {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.25);
 }
-
 .nav-links li a.active::after {
   content: '';
   position: absolute;
