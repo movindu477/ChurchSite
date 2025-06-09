@@ -218,7 +218,7 @@ body {
 
 
 
-/* Family2 Section - Complete Optimized Styles */
+/* Family2 Section - Complete Optimized Styles with Equal Image Boxes */
 .family2 {
     width: 100%;
     max-width: 100%;
@@ -305,6 +305,8 @@ body {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
+
+/* Updated Image Container Styles for Consistent Sizing */
 .image-container {
     width: 100%;
     height: 500px;
@@ -316,16 +318,15 @@ body {
     position: relative;
 }
 .team-card img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 .team-card:hover img {
     transform: scale(1.05);
 }
+
 .team-card h2 {
     font-size: 1.6rem;
     padding: 2rem;
@@ -334,6 +335,8 @@ body {
     font-weight: 500;
     width: 100%;
 }
+
+/* Responsive Adjustments */
 @media (max-width: 1800px) {
     .image-container {
         height: 450px;
@@ -385,7 +388,7 @@ body {
         padding: 0 2rem;
     }
     .image-container {
-        height: 450px;
+        height: 500px;
     }
     .family2 h1.main-heading {
         font-size: 2.2rem;
@@ -393,7 +396,7 @@ body {
 }
 @media (max-width: 600px) {
     .image-container {
-        height: 400px;
+        height: 450px;
     }
 }
 @media (max-width: 500px) {
@@ -402,7 +405,7 @@ body {
         padding: 0 1.5rem;
     }
     .image-container {
-        height: 350px;
+        height: 400px;
     }
     .team-card h2 {
         font-size: 1.4rem;
@@ -411,10 +414,9 @@ body {
 }
 @media (max-width: 400px) {
     .image-container {
-        height: 300px;
+        height: 350px;
     }
 }
-
 
 
 
